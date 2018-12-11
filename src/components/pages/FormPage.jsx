@@ -49,7 +49,7 @@ export default class extends React.Component {
     }
     if(localStorage.getItem('status')){
       if(localStorage.getItem('id') && localStorage.getItem('status') == 'generate_product'){
-        fetch('http://localhost:1337/data?id='+localStorage.getItem('id'), {mode: 'cors'})
+        fetch('http://13.66.7.193:1337/data?id='+localStorage.getItem('id'), {mode: 'cors'})
         .then(response => response.text())
         .then((body) => {
           console.log(body);
@@ -94,7 +94,7 @@ export default class extends React.Component {
         belki = this.belki.current.state.currentInputValue,
         kalorii = this.kalorii.current.state.currentInputValue;
     // console.log(jir);
-    fetch('http://localhost:1337/insert?jir='+jir+'&uglevod='+uglevod+'&belki='+belki+'&kalorii='+kalorii, {mode: 'cors'})
+    fetch('http://13.66.7.193:1337/insert?jir='+jir+'&uglevod='+uglevod+'&belki='+belki+'&kalorii='+kalorii, {mode: 'cors'})
     .then(response => response.text())
     .then((body) => {
       console.log(body);
@@ -114,7 +114,7 @@ export default class extends React.Component {
       if(products[i].food_name == this.asd[index].props.title){
         var cals = products[i].Calories,
             name = products[i].food_name
-        fetch('http://localhost:1337/change_product?kalorii='+cals+'&name='+name, {mode: 'cors'})
+        fetch('http://13.66.7.193:1337/change_product?kalorii='+cals+'&name='+name, {mode: 'cors'})
         .then(response => response.text())
         .then((body) => {
           products.splice(index, 1, JSON.parse(body))
